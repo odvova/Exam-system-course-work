@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="card mx-auto max-width-650">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4 pb-2">Create Exam</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <button class="btn btn-success btn-block mb-2" type="submit"><i class="fas fa-plus"></i> Create</button>
+            </form>
+            <a href="{% url 'exams_list' %}" class="btn btn-secondary btn-block"><i class="fas fa-ban"></i> Cancel</a>
+        </div>
+    </div>
+{% endblock content %}

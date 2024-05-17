@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div class="card mx-auto max-width-650">
+        <div class="card-body">
+            <form method="POST">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4 pb-2">Edit Profile</legend>
+                    {{ form|crispy }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-success btn-block" type="submit"><i class="fas fa-save"></i> Update</button>
+                </div>
+            </form>
+        </div>
+        <div class="card-footer">
+            {% if user.is_student %}
+                <a href="{% url 'users:student_profile' %}">Student Profile</a> | 
+            {% endif %}
+            {% if user.is_teacher %}
+                <a href="{% url 'users:teacher_profile' %}">Teacher Profile</a> | 
+            {% endif %}
+            <a href="{% url 'password_reset' %}">Reset Password</a>
+        </div>
+    </div>
+{% endblock content %}

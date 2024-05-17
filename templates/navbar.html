@@ -1,0 +1,60 @@
+{% load my_extras %}
+<nav class="navbar navbar-expand-md bg-dark navbar-dark sticky-top mb-4">
+    <div class="container">
+        <!-- Brand -->
+        <a class="navbar-brand font-weight-bold" href="#">Online Examination System</a>
+
+        <!-- Toggler Button -->
+        <button class="navbar-toggler" data-toggle="collapse" data-target="#navbar-links">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Navbar Links -->
+        <div class="collapse navbar-collapse" id="navbar-links">
+            <ul class="navbar-nav  ml-auto">
+                {% if user.is_authenticated %}
+                    {% if user.is_student %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'students:exams_list' %}">Active exams</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'students:result_list' %}">Results</a>
+                        </li>
+                    {% endif %}
+                    {% if user.is_teacher %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'exams_list' %}">Your exams</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'teachers:students_list' %}">Students' profiles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'teachers:students_request_list' %}">Students' profile requests</a>
+                        </li>
+                    {% endif %}
+                    {% if user.is_hod %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'hod:teachers_list' %}">Teachers' profiles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'hod:teachers_request_list' %}">Teachers' profile requests</a>
+                        </li>
+                    {% endif %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:profile' %}">Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Login</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'users:register' %}">Register</a>
+                    </li>
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+</nav>
