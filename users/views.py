@@ -139,6 +139,6 @@ def redirect_on_login(request):
 
 @require_POST
 def demo_login(request):
-    user = User.objects.get(pk=1)
+    user = User.objects.get(pk=3)
     login(request, user)
     return redirect("redirect_on_login")
