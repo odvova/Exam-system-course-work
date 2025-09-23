@@ -39,7 +39,7 @@ CSRF_TRUSTED_ORIGINS = [f"https://{h}" for h in ALLOWED_HOSTS if not h.startswit
 # Application definition
 
 INSTALLED_APPS = [
-    "django.contrib.admin",
+    "myproject.apps.MyAdminConfig",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
