@@ -14,7 +14,7 @@ LINK:
 git clone https://github.com/odvova/Exam-system-course-work.git
 
 # Enter into the directory
-cd online-examination-system/
+cd Exam-system-course-work/
 
 # Create virtual environment
 python3 -m venv .venv
@@ -41,3 +41,4 @@ EMAIL_PASS=''
 ```
 python manage.py runserver
 ```
+
