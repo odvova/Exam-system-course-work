@@ -1,7 +1,7 @@
 # Online Examination System
 Online Examination System in Django
 
-LINK:
+LINK: https://exam-system-odvova-dd6d748d9ba5.herokuapp.com/
 ## Getting started
 ### Requirements
  - Python 3.6+
@@ -41,4 +41,5 @@ EMAIL_PASS=''
 ```
 python manage.py runserver
 ```
+
 
